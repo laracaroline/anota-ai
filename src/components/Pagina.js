@@ -11,7 +11,6 @@ export default class Pagina extends React.Component {
       <div className="divPagina">
         <div className="divPaginaConteudo">
           <BrowserRouter>
-            <div>
                 <Switch>
                   <Route path="/" exact={true} component={Home} />
                   <Route path="/home" exact={true} component={Home} />
@@ -19,9 +18,7 @@ export default class Pagina extends React.Component {
                   <Route path="/minhasAtividades" exact={true} component={MinhasAtividades} />
                   {/* <Route path="/sobre" exact={true} component={Sobre} /> */}
                 </Switch>
-            </div>
           </BrowserRouter>
-          
         </div>
       </div>
     );

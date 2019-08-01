@@ -1,11 +1,92 @@
 import React from "react";
 import "./Style.css";
+import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 export default class MinhasAtividades extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      atividades: [],
+      redirect: false,
+      id_atividade: '',
+      nome_atividade: '',
+      descricao_atividade: '',
+      data_atividade: '',
+      cargaHoraria_atividade: ''
+    };
+  }
+
+  componentDidMount() {
+    this.listar();
+  }
+
+  listar() {
+    axios.get("http://localhost:3003/listar").then(res => {
+      const atividades = res.data;
+      this.setState({ atividades });
+    });
+  }
+
+  remover(id){
+    axios.delete('http://localhost:3003/delete/'+id)
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+          });
+        alert("Tarefa removida!");
+  }
+  editar(e, id){
+    e.preventDefault();
+    axios.get('http://localhost:3003/atividade/' + id)
+        .then(response => {
+            const atividades = response.data[0];
+            const dataFormat = atividades.data_atividade.split("T")[0];
+            this.setState({ 
+              redirect: true,
+              id_atividade: atividades.id_atividade, 
+              nome_atividade: atividades.nome_atividade, 
+              descricao_atividade: atividades.descricao_atividade, 
+              data_atividade: dataFormat, 
+              cargaHoraria_atividade: atividades.carga_horaria_atividade
+            });
+            //this.props.irEditar(atividades.id_atividade, atividades.nome_atividade, atividades.descricao_atividade, dataFormat, atividades.carga_horaria_atividade);
+            console.log(response.data);
+            console.log(response.status);
+    })
+    .catch(erro => console.log(erro))
+}
+
   render() {
+    const { redirect } = this.state;
+    if (redirect) {
+      return <Redirect to={{
+        pathname: '/novaAtividade',
+        state : {
+          id: this.state.id_atividade,
+          nome: this.state.nome_atividade,
+          descricao: this.state.descricao_atividade,
+          data: this.state.data_atividade,
+          cargaHoraria: this.state.cargaHoraria_atividade
+        }
+    }}/>;
+    }
     return (
       <div>
-        <h1 className="titulo"> Minhas Atividades </h1>
+        <form>
+          <h1 className="titulo"> Minhas Atividades </h1>
+          <ul className="ulListaAtividade">
+            {this.state.atividades.map(atividade => (
+              <li className="liListaAtividade">
+                {atividade.nome_atividade}
+                <span>
+                  <input className="editarBtn" type="submit" value="Editar" onClick={e => this.editar(e, atividade.id_atividade)}/>
+                  <input className="excluirBtn" type="submit" value="Excluir" onClick={e => this.remover(atividade.id_atividade)}/>
+                </span>
+              </li>
+            ))}
+          </ul>
+        </form>
       </div>
     );
   }
