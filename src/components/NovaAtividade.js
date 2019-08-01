@@ -56,7 +56,7 @@ export default class NovaAtividade extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    if (!this.props.id) {
+    if (!this.state.id) {
       const obj = {
         nome: this.state.nome,
         descricao: this.state.descricao,
@@ -81,7 +81,7 @@ export default class NovaAtividade extends React.Component {
         cargaHoraria: ""
       });
     }else{
-      const id = this.props.id;
+      const id = this.props.location.state.id;
       const obj = {
         nome: this.state.nome,
         descricao: this.state.descricao,

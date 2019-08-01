@@ -62,7 +62,6 @@
     0 6px 20px 0 rgba(0, 0, 0, 0.075);
     z-index: 0;
 }
-
 .tituloHome {
   margin-left: 20px;
   text-align: center;
@@ -148,8 +147,6 @@ textarea:focus {
   border-top-width: 1px;
   border-right-width: 0;
   border-left-width: 0;
-  /* border: 1px solid #555; */
-  
 }
 .liListaAtividade{
   display: block;

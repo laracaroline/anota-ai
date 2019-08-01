@@ -50,7 +50,6 @@ export default class MinhasAtividades extends React.Component {
               data_atividade: dataFormat, 
               cargaHoraria_atividade: atividades.carga_horaria_atividade
             });
-            //this.props.irEditar(atividades.id_atividade, atividades.nome_atividade, atividades.descricao_atividade, dataFormat, atividades.carga_horaria_atividade);
             console.log(response.data);
             console.log(response.status);
     })
@@ -71,6 +70,7 @@ export default class MinhasAtividades extends React.Component {
         }
     }}/>;
     }
+
     return (
       <div>
         <form>
@@ -78,7 +78,7 @@ export default class MinhasAtividades extends React.Component {
           <ul className="ulListaAtividade">
             {this.state.atividades.map(atividade => (
               <li className="liListaAtividade">
-                {atividade.nome_atividade}
+                <a className="nomeAtividade"> {atividade.nome_atividade} </a>
                 <span>
                   <input className="editarBtn" type="submit" value="Editar" onClick={e => this.editar(e, atividade.id_atividade)}/>
                   <input className="excluirBtn" type="submit" value="Excluir" onClick={e => this.remover(atividade.id_atividade)}/>
