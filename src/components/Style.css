@@ -53,7 +53,7 @@
   position: absolute;
   background-color: rgb(255, 255, 255);
   width: 97%;
-  height: 80%;
+  min-height: 80%;
   margin: 0;
   top: 20%;
   left: 50%;
@@ -83,21 +83,27 @@
   color: #4e2bb3;
 }
 .labelForm {
-  margin-left: 60px;
+  margin-left: 40px;
   font-size: 20px;
+  text-align: right;
   color: #30167e;
+  display: inline-block; 
+  width: 23%;
 }
 .inputForm {
   margin-left: 10px;
   margin-top: 15px;
-  width: 50%;
+  width: 400px;
   padding: 10px;
   border: 1px solid #b5b4b679;
   border-radius: 10px;
   box-shadow: 0px 5px 10px rgba(150, 150, 150, 0.541);
   font-family: sans-serif;
-  font-size: 15px
-
+  font-size: 15px;
+}
+.cargaData{
+  width: 150px;
+  text-align: center;
 }
 .inputForm:focus {
   border: 2px solid #30167e;
@@ -122,7 +128,7 @@
 textarea {
   margin-left: 10px;
   margin-top: 15px;
-  width: 50%;
+  width: 422px;
   height: 75px;
   box-sizing: border-box;
   border: 1px solid #b5b4b679;
@@ -172,21 +178,17 @@ textarea:focus {
 .editarBtn{
   background-color: #7022a9;
   border: 0;
-  border-radius: 10px 0 0 10px;
+  border-radius: 0 0 0 0;
   color: white;
   padding: 16px 32px;
   text-decoration: none;
-  cursor: pointer;
   font-size: 15px;
 }
 .editarBtn:hover{
   background-color: #aa70d3;
   color: white;
 }
-.excluirBtn:hover{
-  background-color: #f36c6c;
-  color: white;
-}
+
 .excluirBtn{
   background-color: #d41414;
   border: 0;
@@ -194,11 +196,63 @@ textarea:focus {
   color: white;
   padding: 16px 32px;
   text-decoration: none;
-  cursor: pointer;
   font-size: 15px;
-  
+}
+.excluirBtn:hover{
+  background-color: #f36c6c;
+  color: white;
 }
 
+.verMaisBtn{
+  background-color: #4311db;
+  border: 0;
+  border-radius: 10px 0 0 10px;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  font-size: 15px;
+}
+.verMaisBtn:hover{
+  background-color: #7047ec;
+  color: white;
+}
+.rotuloAtividade{
+  margin-left: 60px; 
+  color: #4311db;
+  font-size: 20px;
+  margin-top: 20px;
+}
+.dadoAtividade{
+  margin-top: 2px;
+  font-size: 18px;
+  margin-left: 20px;
+  color: #7022a9;
+}
+.voltarBtn{
+  background-color: #4311db;
+  border: 0;
+  border-radius: 20px 20px 20px 20px;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  font-size: 15px;
+  margin-left: 30%; 
+}
+.voltarBtn:hover{
+  background-color: #7047ec;
+  color: white;
+}
+.textoSobre{
+  color: #7022a9;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  display: inline-block; 
+  text-align: justify;
+  max-width: 80%;
+  top: 80%;
+  margin-left: 50%;
+  transform: translate(-50%, -10%);
+}
 @media screen and (max-width: 600px) {
   .divPagina {
     top: 300px;
@@ -209,5 +263,27 @@ textarea:focus {
   }
   .ulNav .liNav {
     float: none;
+  }
+}
+@media screen and (max-width: 640px) {
+  .verMaisBtn{
+    border-radius: 10px 10px 0 0;
+    width: 130px;
+    display: flex;
+    margin-left: 60px;
+  }
+  .editarBtn{
+    border-radius: 0 0 0 0;
+    width: 130px;
+    margin-left: 60px;
+  }
+  .excluirBtn{
+    border-radius: 0 0 10px 10px;
+    width: 130px;
+    margin-left: 60px;
+  }
+  .aListaAtividade{
+    display: block;
+    min-width: 30%;
   }
 }

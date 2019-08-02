@@ -4,6 +4,8 @@ import Home from "./Home";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NovaAtividade from "./NovaAtividade";
 import MinhasAtividades from "./MinhasAtividades";
+import Atividade from "./Atividade";
+import Sobre from "./Sobre";
 
 export default class Pagina extends React.Component {
   render() {
@@ -16,7 +18,8 @@ export default class Pagina extends React.Component {
                   <Route path="/home" exact={true} component={Home} />
                   <Route path="/novaAtividade" exact={true} component={NovaAtividade} />
                   <Route path="/minhasAtividades" exact={true} component={MinhasAtividades} />
-                  {/* <Route path="/sobre" exact={true} component={Sobre} /> */}
+                  <Route path="/atividade" exact={true} component={Atividade} />
+                  <Route path="/sobre" exact={true} component={Sobre} />
                 </Switch>
           </BrowserRouter>
         </div>

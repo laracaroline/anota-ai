@@ -116,26 +116,28 @@ export default class NovaAtividade extends React.Component {
     return (
       <div>
         <h1 className="titulo"> Nova Atividade </h1>
-        <form onSubmit={this.onSubmit} method="post">
-          <label className="labelForm">Nome </label>
+        <form className="formulario" onSubmit={this.onSubmit} method="post">
+          <label className="labelForm">Nome</label>
           <input
             className="inputForm"
             type="text"
             value={this.state.nome}
             onChange={this.onChangeNome}
+            maxlength="99"
             required
           />
-          <br />
+          <br/>
           <label className="labelForm">Descrição </label>
           <textarea
             value={this.state.descricao}
             onChange={this.onChangeDescricao}
+            maxlength="299"
             required
           />
           <br />
           <label className="labelForm">Carga Horária </label>
           <input
-            className="inputForm"
+            className="inputForm cargaData"
             type="time"
             value={this.state.cargaHoraria}
             onChange={this.onChangeCargaHoraria}
@@ -144,7 +146,7 @@ export default class NovaAtividade extends React.Component {
           <br />
           <label className="labelForm">Data</label>
           <input
-            className="inputForm"
+            className="inputForm cargaData"
             type="date"
             value={this.state.data}
             onChange={this.onChangeData}

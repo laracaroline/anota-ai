@@ -1,7 +1,5 @@
 import React from 'react';
 import './Style.css';
-import Pagina from './Pagina';
-import Navbar from './Navbar';
 import { withRouter } from "react-router-dom";
 
 export class Home extends React.Component{
